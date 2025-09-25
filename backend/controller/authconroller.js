@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt")
 const signup = async (req, res) => {
     try {
         const { firstname, lastname, email, password, profileurl, website, linkedin, bio, skills, company, department, position, location, phone, username } = req.body;
-        const user = await Usermodel.findOne({ username, email })
+        const user = await Usermodel.findOne({ username })
         if (user) {
             return res.status(409).json({
                 message: 'User is already exist , you can login',
